@@ -9,13 +9,17 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <nav class="nav-menu" id="navbar">
-        <ul class="nav-links">
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#sobre">Sobre el Programa</a></li>
             <li><a href="#requisitos">Requisitos</a></li>
@@ -70,8 +74,7 @@
             <div class="about-card">
                 <h3><i class="fas fa-dollar-sign"></i> Financiamiento </h3>
                 <p>Cada proyecto seleccionado recibirá el financiamiento para materiales, equipos, honorarios creativos
-                    y
-                    acciones de difusión. 60% al firmar convenio, 40% al finalizar.</p>
+                    y acciones de difusión. 60% al firmar convenio, 40% al finalizar.</p>
             </div>
             <div class="about-card">
                 <h3><i class="fas fa-hands-helping"></i> Mentoría y Acompañamiento</h3>
@@ -80,8 +83,7 @@
             </div>
             <div class="about-card">
                 <h3><i class="fas fa-users"></i> Enfoque Inclusivo</h3>
-                <p>Priorizamos comunidades fuera del Área Metropolitana de Asunción y la
-                    población LGBTIQ+.</p>
+                <p>Priorizamos comunidades fuera del Área Metropolitana de Asunción y la población LGBTIQ+.</p>
             </div>
         </div>
     </section>
@@ -264,7 +266,7 @@
             <div class="logo-placeholder">Voces por el Planeta</div>
             <div class="logo-placeholder">ASOEDHU</div>
         </div>
-        <p>&copy; 2024 ASOEDHU. Todos los derechos reservados.</p>
+        <p class="footer-text">&copy; 2024 ASOEDHU. Todos los derechos reservados.</p>
     </footer>
 
     <a href="#postular" class="floating-btn" aria-label="Postular ahora">
@@ -273,6 +275,7 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script src="mobile.js"></script>
 </body>
 
 </html>

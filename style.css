@@ -1,3 +1,440 @@
+/* --- MENÚ HAMBURGUESA --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 62, 80, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .hamburger {
+    display: flex;
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(44,62,80,0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateY(-100vh);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links.open {
+    transform: translateY(0);
+  }
+  
+  .nav-links li {
+    margin: 0;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    font-size: 1.5rem !important;
+    padding: 15px 25px !important;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--prisma-yellow) !important;
+  }
+  
+  /* Añadir padding-top al body para compensar el menú fijo */
+  body {
+    padding-top: 70px;
+  }
+}
+
+/* --- CENTRAR TARJETAS SOBRE EL PROGRAMA --- */
+/* Centrado perfecto de las tarjetas en todas las resoluciones */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.about-card {
+  flex: 0 1 320px;
+  max-width: 320px;
+  min-width: 220px;
+  margin: 0 auto 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  padding: 2rem 1.2rem;
+  text-align: center;
+  align-self: stretch;
+}
+
+/* Estilos específicos para móvil */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-card {
+    width: 100%;
+    max-width: 350px;
+    min-width: unset;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    padding: 0 1.5rem;
+  }
+  .about-card {
+    max-width: 320px;
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* --- CRONOGRAMA SEPARADO Y LEGIBLE --- */
+.timeline-container {
+  position: relative;
+  margin-top: 3rem;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Línea vertical central solo para desktop */
+@media (min-width: 769px) {
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--prisma-green), var(--prisma-blue));
+    border-radius: 3px;
+    z-index: 0;
+  }
+}
+
+.timeline-item {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 3rem;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+  min-height: 120px;
+}
+
+.timeline-date {
+  background: var(--prisma-green);
+  color: white;
+  padding: 1.1rem 1.8rem;
+  border-radius: 28px;
+  min-width: 140px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 8px 20px rgba(74, 155, 62, 0.4);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: white;
+  color: var(--text-color);
+  padding: 1.8rem 2.2rem;
+  border-radius: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.13);
+  position: relative;
+  width: 380px;
+  min-height: 100px;
+  z-index: 2;
+}
+
+/* Layout para desktop */
+@media (min-width: 769px) {
+  .timeline-date {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+  }
+  
+  /* Alternar tarjetas a izquierda y derecha */
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: calc(50% + 80px);
+  }
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-right: calc(50% + 80px);
+    margin-left: 0;
+  }
+  
+  /* Conectores hacia la línea central */
+  .timeline-item:nth-child(odd) .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 32px;
+    width: 24px;
+    height: 6px;
+    background: var(--prisma-green);
+    border-radius: 3px;
+  }
+  .timeline-item:nth-child(even) .timeline-content::before {
+    content: '';
+    position: absolute;
+    right: -24px;
+    top: 32px;
+    width: 24px;
+    height: 6px;
+    background: var(--prisma-green);
+    border-radius: 3px;
+  }
+}
+
+/* Layout para móvil */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 4rem;
+  }
+  
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--prisma-green);
+    border-radius: 2px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0;
+    min-height: auto;
+    margin-bottom: 3rem;
+    margin-left: 35px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    border-left: none;
+    position: relative;
+  }
+  
+  .timeline-date {
+    display: block;
+    margin: 0 0 1rem 0;
+    width: auto;
+    max-width: 200px;
+    border-radius: 20px;
+    position: relative;
+    left: 0;
+    transform: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: var(--prisma-green);
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(74, 155, 62, 0.3);
+    border-bottom: none;
+  }
+  
+  .timeline-content {
+    display: block;
+    width: 100%;
+    max-width: calc(100vw - 80px);
+    margin: 0 !important;
+    border-left: 4px solid var(--prisma-yellow);
+    padding: 1.5rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: white;
+    position: relative;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--prisma-green);
+    font-weight: 600;
+  }
+  
+  .timeline-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  .timeline-content::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 4rem;
+  }
+  
+  .timeline-container::before {
+    left: 10px;
+  }
+  
+  .timeline-item {
+    margin-left: 25px;
+    margin-bottom: 2.5rem;
+  }
+  
+  .timeline-date {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    max-width: 180px;
+  }
+  
+  .timeline-content {
+    padding: 1.2rem 1rem;
+    max-width: calc(100vw - 60px);
+    border-left: 3px solid var(--prisma-yellow);
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: var(--prisma-green);
+    font-weight: 600;
+  }
+  
+  .timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  .timeline-content::before {
+    display: none;
+  }
+}
+
+/* --- FOOTER MÓVIL --- */
+.footer {
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 2.5rem 1rem 1.2rem 1rem;
+  text-align: center;
+}
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.logo-placeholder {
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  color: #2c3e50;
+  min-width: 110px;
+}
+.footer-text {
+  font-size: 0.95rem;
+  color: #888;
+}
+@media (max-width: 700px) {
+  .logos {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .logo-placeholder {
+    width: 100%;
+    min-width: unset;
+    font-size: 0.95rem;
+  }
+  .footer-text {
+    font-size: 0.85rem;
+  }
+}
 /* Variables CSS */
         :root {
             --prisma-green: #4A9B3E;
@@ -1070,6 +1507,7 @@
         }
 
         @media (max-width: 768px) {
+            /* Hero section */
             .hero-text h1 {
                 font-size: 3rem;
             }
@@ -1077,46 +1515,64 @@
             .hero-text .subtitle {
                 font-size: 1.5rem;
             }
+            
+            .hero-text .manifesto {
+                font-size: 1.2rem;
+                padding: 0 10px;
+            }
 
             /* Asegurarse de que hero-image-container esté oculto en móviles también */
             .hero-image-container {
                 display: none;
             }
 
-            .about-grid,
+            /* Grids para móviles - usar las reglas ya definidas arriba */
             .requirements-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
-
-            .nav-links {
-                display: none;
-                /* O implementar un menú hamburguesa */
+            
+            /* Tarjetas y elementos */
+            .requirement-item {
+                padding: 1.5rem;
             }
-
+            
+            /* Secciones generales */
             .section {
-                padding: 4rem 1.5rem;
+                padding: 4rem 1rem;
             }
 
             .section h2 {
                 font-size: 2.5rem;
+                margin-bottom: 1.5rem;
             }
-
+            
+            .program-description {
+                padding: 0 0.5rem;
+            }
+            
+            /* Formulario */
             .form-section h2 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
             }
 
             .application-form {
-                padding: 2.5rem;
+                padding: 1.5rem;
+                margin: 0 0.5rem;
             }
-
+            
+            /* Footer */
             .footer {
                 padding: 3rem 1.5rem;
             }
 
             .logos {
-                gap: 2rem;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-
+            
+            /* Botón flotante */
             .floating-btn {
                 bottom: 1.5rem;
                 right: 1.5rem;
@@ -1127,57 +1583,183 @@
         }
 
         @media (max-width: 480px) {
+            /* Navegación ajustada para pantallas muy pequeñas */
+            .nav-links {
+                padding: 0 5px;
+            }
+            
+            .nav-links li {
+                margin: 0 5px;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: 6px 8px;
+            }
+            
+            /* Hero ajustes */
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 0.3rem;
             }
 
             .hero-text .subtitle {
                 font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-text .manifesto {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
             }
 
             .cta-primary {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
+                font-size: 1rem;
+                padding: 0.8rem 1.8rem;
             }
-
+            
+            /* Títulos de sección */
+            .section {
+                padding: 3rem 0.8rem;
+            }
+            
             .section h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
             }
-
+            
+            /* Tarjetas */
+            .about-card, 
+            .requirement-item {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 8px;
+            }
+            
             .about-card h3,
             .requirement-item h4 {
-                font-size: 1.3rem;
-            }
-
-            .timeline-content h4 {
                 font-size: 1.2rem;
+                margin-bottom: 0.5rem;
             }
-
+            
+            .about-card p,
+            .requirement-item p {
+                font-size: 0.9rem;
+            }
+            
+            /* Timeline para móviles muy pequeños */
+            .timeline-container {
+                margin-left: 0;
+                padding-left: 40px;
+                padding-right: 20px;
+                margin-top: 3rem;
+            }
+            
+            .timeline-container:before {
+                left: 20px;
+                margin-left: 0;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                margin-bottom: 4rem;
+                padding: 2rem 1rem;
+                background: transparent;
+                box-shadow: none;
+            }
+            
+            .timeline-date {
+                margin: 0 0 1.5rem 0 !important;
+                font-size: 0.9rem;
+                padding: 0.8rem 1.2rem;
+                width: auto;
+                max-width: 160px;
+                box-shadow: 0 3px 10px rgba(74, 155, 62, 0.25);
+            }
+            
+            .timeline-content {
+                width: 100%;
+                border-left: 3px solid var(--prisma-yellow) !important;
+                border-right: none !important;
+                padding: 1.8rem 1.5rem;
+                margin: 0 !important;
+                border-radius: 12px;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            }
+            
+            .timeline-content h4 {
+                font-size: 1.15rem;
+                margin-bottom: 0.8rem;
+                font-weight: 600;
+            }
+            
+            .timeline-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin: 0;
+            }
+            
+            /* Preguntas frecuentes */
             .faq-question {
-                font-size: 1rem;
-                padding: 1.2rem 1.5rem;
+                font-size: 0.95rem;
+                padding: 1rem 1.2rem;
             }
-
+            
+            .faq-answer {
+                font-size: 0.9rem;
+                padding: 1rem 1.2rem;
+            }
+            
+            /* Formulario */
             .form-section h2 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .application-form {
-                padding: 2rem;
+                padding: 1.2rem;
+                border-radius: 10px;
             }
-
+            
+            .form-group {
+                margin-bottom: 0.8rem;
+            }
+            
             .form-group label {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                margin-bottom: 0.3rem;
             }
 
             .form-group input,
             .form-group textarea,
             .form-group select {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                padding: 0.7rem;
+                border-radius: 6px;
             }
-
+            
             .submit-btn {
-                font-size: 1.1rem;
-                padding: 1rem 2rem;
+                font-size: 1rem;
+                padding: 0.8rem 1.8rem;
+                margin-top: 1rem;
+            }
+            
+            /* Footer ajustado */
+            .footer {
+                padding: 2rem 1rem;
+            }
+            
+            .footer p {
+                font-size: 0.8rem;
+            }
+            
+            .logos {
+                gap: 1rem;
+            }
+            
+            .logo-placeholder {
+                padding: 1rem;
+                font-size: 0.8rem;
             }
         }
