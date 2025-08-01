@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Voces por el Planeta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="formulario-voces" enctype="multipart/form-data" method="POST" action="procesar_formulario.php">
+        <div id="form-step-1" class="form-step">
+            <h2>Datos Personales</h2>
+            <label>Nombre y Apellido
+                <input type="text" name="nombre" required maxlength="100">
+            </label>
+            <label>Edad
+                <input type="number" name="edad" min="10" max="99" required>
+            </label>
+            <label>Departamento
+                <select name="departamento" id="departamento" required></select>
+            </label>
+            <label>Ciudad
+                <select name="ciudad" id="ciudad" required></select>
+            </label>
+            <label>Correo electrónico
+                <input type="email" name="email" required>
+            </label>
+            <label>Número de celular
+                <input type="tel" name="celular" required>
+            </label>
+            <label>Obra:
+                <input type="radio" name="obra" value="Individual" required> Individual
+                <input type="radio" name="obra" value="Colectiva"> Colectiva
+            </label>
+            <label id="integrantes-label" style="display:none;">Cantidad de integrantes
+                <input type="number" name="integrantes" min="2" max="20">
+            </label>
+            <label>Profesión
+                <select name="profesion" required>
+                    <option value="">Selecciona</option>
+                    <option>Artista</option>
+                    <option>Comunicador/a</option>
+                    <option>Gestor cultural</option>
+                    <option>Profesional Independiente</option>
+                    <option>Activista ambiental</option>
+                    <option>Aficionado al arte</option>
+                    <option>Otros</option>
+                </select>
+            </label>
+            <label>Link red social o portfolio
+                <input type="url" name="portfolio">
+            </label>
+            <button type="button" id="siguiente">Siguiente</button>
+        </div>
+        <div id="form-step-2" class="form-step" style="display:none;">
+            <h2>Datos de la Obra</h2>
+            <label>Categoría Artística
+                <select name="categoria" required>
+                    <option value="">Selecciona</option>
+                    <option value="A1">Escénicas & Música</option>
+                    <option value="A2">Intervenciones Urbanas</option>
+                    <option value="A3">Visual & Audiovisual</option>
+                    <option value="A4">Sonoras & Radiales</option>
+                    <option value="A5">Gráfica & Editorial</option>
+                    <option value="A6">Digital & Viral</option>
+                    <option value="A7">Diálogo & Pensamiento Crítico</option>
+                </select>
+            </label>
+            <label>Título de la obra
+                <input type="text" name="titulo_obra" maxlength="100" required>
+            </label>
+            <label>¿Qué técnica piensas usar para tu obra?
+                <input type="text" name="tecnica" maxlength="300" required>
+            </label>
+            <label>¿Cuál fue tu inspiración?
+                <textarea name="inspiracion" maxlength="500" rows="3" required></textarea>
+            </label>
+            <label>¿Cuál es el mensaje que deseas transmitir?
+                <input type="text" name="mensaje" maxlength="300" required>
+            </label>
+            <label>Adjuntar foto o video (JPG/PNG/MP4/MOV, máx. 50MB)
+                <input type="file" name="archivo" accept=".jpg,.jpeg,.png,.mp4,.mov">
+            </label>
+            <label>¿Tu obra está diseñada para ser transportada?
+                <input type="radio" name="transportable" value="Si" required> Sí
+                <input type="radio" name="transportable" value="No"> No
+            </label>
+            <label>¿Cómo te enteraste del concurso?
+                <select name="difusion" required>
+                    <option value="">Selecciona</option>
+                    <option>Redes sociales</option>
+                    <option>Televisión</option>
+                    <option>Email</option>
+                    <option>Radio</option>
+                    <option>Charlas</option>
+                    <option>Otros</option>
+                </select>
+            </label>
+            <label>¿Qué cambio o acción climática concreta esperas provocar?
+                <input type="text" name="accion_climatica" maxlength="200" required>
+            </label>
+            <label>¿Cómo tu obra conecta con la comunidad y promueve la sostenibilidad?
+                <input type="text" name="comunidad" maxlength="200" required>
+            </label>
+            <label>¿Cómo tu obra contribuye a la sostenibilidad ambiental?
+                <input type="text" name="sostenibilidad" maxlength="200" required>
+            </label>
+            <label>Aceptas todas las bases y condiciones del concurso
+                <input type="checkbox" name="acepta_bases" value="si" required> Sí
+            </label>
+            <button type="button" id="anterior">Anterior</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+    <div id="mensaje-exito" style="display:none;">
+        <h3>¡Gracias por sumar tu voz al planeta!</h3>
+        <p>Revisaremos todas las propuestas entre el 1 y 6 de septiembre de 2025.<br>
+            Publicaremos la lista de proyectos seleccionados el 15 de septiembre en las redes de WWF Paraguay y ASOEDHU
+            y en www.asoedhu.org/vocesxelplaneta.<br>
+            Mientras tanto, podés consultar las Preguntas Frecuentes.<br>
+            Si surge alguna duda adicional, escríbenos al email info@asoedhu.org.<br>
+            ¡Éxitos y gracias por crear arte en defensa del clima!</p>
+    </div>
+    <script src="formulario.js"></script>
+</body>
+
+</html>
