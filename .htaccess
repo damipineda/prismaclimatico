@@ -23,29 +23,6 @@ RewriteEngine On
     Deny from all
 </Files>
 
-# Proteger directorio de logs
-<Directory "logs">
-    Order allow,deny
-    Deny from all
-</Directory>
-
-# Permitir acceso solo a archivos específicos en uploads
-<Directory "uploads">
-    Order allow,deny
-    Allow from all
-    
-    # Solo permitir archivos de imagen y video
-    <FilesMatch "\.(jpg|jpeg|png|gif|mp4|mov|avi|wmv)$">
-        Order allow,deny
-        Allow from all
-    </FilesMatch>
-    
-    # Denegar acceso a otros tipos de archivo
-    <FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$">
-        Order allow,deny
-        Deny from all
-    </FilesMatch>
-</Directory>
 
 # Headers de seguridad
 <IfModule mod_headers.c>
